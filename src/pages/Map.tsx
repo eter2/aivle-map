@@ -55,8 +55,6 @@ function Map() {
         });
 
         // 확대축소 종료 시 좌표 불러오기
-        let zoomControl = new window.kakao.maps.ZoomControl();
-        map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
         window.kakao.maps.event.addListener(map, 'zoom_changed', function() {
             fetchDataAndCreateMarkers();
         });
@@ -211,9 +209,7 @@ function Map() {
         window.kakao.maps.event.addListener(map, 'dragend', function () {      
             customOverlay.setMap(null);
         });
-
-        let zoomControl = new window.kakao.maps.ZoomControl();
-        map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
+        
         window.kakao.maps.event.addListener(map, 'zoom_changed', function() {
             customOverlay.setMap(null);
         });
