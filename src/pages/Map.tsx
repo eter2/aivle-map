@@ -115,7 +115,6 @@ function Map() {
     };
     
     const createParkingMarker = (map: any, data: any) => {
-        console.log(data)
         const lat = data.latitude;
         const lng = data.longitude;
         const imageSrc = "assets/park_mark.png";
