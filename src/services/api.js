@@ -33,7 +33,7 @@ exports.getPublicParking = async (left, right) => {
             "upperRightY": right.getLng()
         }
         
-        const response = await fetch(`${url}/public-parkings?${new URLSearchParams(params)}`, {
+        const response = await fetch(`${url}/parkings?${new URLSearchParams(params)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

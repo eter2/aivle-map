@@ -170,7 +170,7 @@ function Map() {
         '            </div>' +
         '            <div class="box">' +
         '              <div class="title">현재 주차면</div>' +
-        '              <div class="count">16</div>' +
+        `              <div class="count">${data.currentCapacity}</div>` +
         '            </div>' +
         '          </div>' +
         '        </div>' +
