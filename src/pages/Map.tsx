@@ -10,16 +10,14 @@ declare global {
 }
 
 function Map() {
-    const [cameraList, setCameraList] = useState<number[][]>([]);
-    const [parkingList, setParkingList] = useState<number[][]>([]);
-
     useEffect(() => {
         // 지도 생성
         let container = document.getElementById(`map`);
         let options = {
-            center: new window.kakao.maps.LatLng(37.35889, 127.11484), // 지도 중심 좌표
+            center: new window.kakao.maps.LatLng(37.552893250871136, 126.97137943460862), // 지도 중심 좌표
             level: 2, // 지도의 레벨
         };
+        
         let map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
 
         // 현재 위치에 마커 표시
@@ -40,11 +38,9 @@ function Map() {
 
             // 카메라 데이터 가져오기
             const cameraData = await fetchCameraData(left, right);
-            setCameraList(cameraData);
 
             // 주차장 데이터 가져오기
             const parkingData = await fetchParkingData(left, right);
-            setParkingList(parkingData);
 
             // 데이터가 변경될 때마다 마커를 생성합니다.
             createMarkers(map, cameraData, createCameraMarker);
@@ -55,7 +51,7 @@ function Map() {
 
         // 드래그 종료 시 좌표 불러오기
         window.kakao.maps.event.addListener(map, 'dragend', function () {
-            fetchDataAndCreateMarkers();         
+            fetchDataAndCreateMarkers();
         });
 
         // 확대축소 종료 시 좌표 불러오기
